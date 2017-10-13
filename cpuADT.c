@@ -1,19 +1,26 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+
 #include <stdlib.h>
 #include <stdio.h>
-#include <pcbADT.h>
-#include <queueADT.h>
+#include "pcbADT.h"
+#include "queueADT.h"
 
 typedef struct cpu {
 	unsigned int timer;
 	PCB_p currentProcess;
-	Queue_p readyQueue;
-	Queue_p newProcessesQueue;
-	Queue_p terminatedQueue;
+	QUEUE_p readyQueue;
+	QUEUE_p newProcessesQueue;
+	QUEUE_p terminatedQueue;
 } cpu_s;
 
 
 typedef enum interrupt {
-	timer, io;
+	timer, io
 } interrupt_type;
 
 
@@ -27,13 +34,6 @@ CPU_p createCPU() {
 	return cpu;
 }
 
-Queue create_processes(Queue_p queue, int rand_proc) {
-	
-	for (int n = 0; n < rand_proc; n++) {
-		// hard-coded parameters for now
-		PCB_p pcb = create("new", 10);
-	}
-}
 
 void destroyCPU(CPU_p cpu) {
 	free(cpu);
@@ -41,26 +41,26 @@ void destroyCPU(CPU_p cpu) {
 
 
 void enqueue_readyQueue(CPU_p, PCB_p pcb) {
-	
+    q_enqueue(CPU_p->readyQueue, pcb);
 }
 
 
 PCB_p dequeue_readyQueue() {
-	
+    return q_dequeue(CPU_p->readyQueue);
 }
 
 void enqueue_terminatedQueue(CPU_p, PCB_p pcb) {
-	
+    q_enqueue(CPU_p->terminatedQueue, pcb);
 }
 
 PCB_p dequeue_terminatedQueue() {
-	
+    return q_dequeue(CPU_p->terminatedQueue);
 }
 
 void enqueue_newProcessesQueue(CPU_p, PCB_p pcb) {
-	
+	q_enqueue(CPU_p->newProcessesQueue, pcb);
 }
 
 PCB_p dequeue_newProcessesQueue() {
-	
+    return q_dequeue(CPU_p->newProcessesQueue, pcb);
 }
