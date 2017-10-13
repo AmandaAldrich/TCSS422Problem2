@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 
+
+#include <stdio.h>
+#include <stdlib.h>
 #include "pcbADT.h"
+#include "queueADT.h"
+#include "cpuADT.h"
 
 
-
-void create_processes(int rand_proc);
+void create_processes(int rand_proc, CPU_p cpu);
+void pseudo_ISR(CPU_p cpu, interrupt_type state1, PCB_p pcb);
+void scheduler(CPU_p cpu, interrupt_type state2, PCB_p pcb);
+void dispatcher(CPU_p cpu, PCB_p pcb);
 
 int sysStack;
 
@@ -19,20 +26,20 @@ int main(void){
         
         CPU_p cpu = createCPU();
         
-        create_processes(r);
+        create_processes(r, cpu);
         
-        PCB_p temp = dequeue_newProcessesQueue();
+        PCB_p temp = dequeue_newProcessesQueue(cpu);
         temp->context->pc += rpc;
         sysStack = temp->context->pc;
         
         //theres no type switching logic here because we are only worries about timers for now
-        pseudo_ISR(interrupt timer, temp);
+        pseudo_ISR(cpu, timer, temp);
         
             
     }
 }
 
-void create_processes(int rand_proc) {
+void create_processes(int rand_proc, CPU_p cpu) {
 	
 	for (int n = 0; n < rand_proc; n++) {
             int rid = rand() % 50; //just gives a random PID for debugging
@@ -40,31 +47,46 @@ void create_processes(int rand_proc) {
 		// hard-coded parameters for now
 		PCB_p pcb = create(0, 10);
                 set_pid(pcb, rid);
-                set_state(pcb, state_type ready);
+                set_state(pcb, ready);
                
-                enqueue_newProcessesQueue(CPU_p->newProcessesQueue, pcb);
+                enqueue_newProcessesQueue(cpu, pcb);
 	}
 }
 
-void pseudo_ISR(enum interrupt timer, PCB_p pcb){
-    set_state(pcb, state_type interrupted);
+void pseudo_ISR(CPU_p cpu, interrupt_type state1, PCB_p pcb){
+    set_state(pcb, state1);
     pcb->context->pc = sysStack;
-    
-    
+    scheduler(cpu, state1, pcb);
 }
 
-void scheduler(enum interrupt timer, PCB_p pcb){
-    switch(interrupt){
+void scheduler(CPU_p cpu, interrupt_type state2, PCB_p pcb){
+    switch(state2){
         case(timer):
-            dispatcher(pcb);
+            set_state(pcb, ready);
+            enqueue_readyQueue(cpu, pcb);
+            printf("enqueued: ");
+            toString(pcb);
+            dispatcher(cpu, pcb);
             break;
-            //this is where I/O could go
+        
     }
 }    
     
-void dispatcher(PCB_p pcb){
-    pcb->state = state_type ready;
-    enqueue_readyQueue(cpu, pcb);
+void dispatcher(CPU_p cpu, PCB_p pcb){
+    int disCounter = 0;
+    set_state(pcb, ready);
+    PCB_p newPcb = dequeue_readyQueue(cpu);
+    set_state(newPcb, running);
+    sysStack = newPcb->context->pc;
+    if(disCounter == 4){
+        toString(pcb);
+        printf(", switching to: ");
+        toString(newPcb);
+        toString(newPcb);
+        printf(", switching to: ");
+        toString(getFrontElement(cpu->readyQueue));
+        q_toString(cpu->readyQueue);
+    }
     
-    //I'm really confused about whats supposed to happen here
+    disCounter++;
 }    

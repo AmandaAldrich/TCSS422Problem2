@@ -28,6 +28,7 @@ int q_is_empty(QUEUE_p target_QUEUE_p);
 int q_size(QUEUE_p target_QUEUE_p);
 void q_enqueue(QUEUE_p target_QUEUE_p, PCB_p target_PCB);
 PCB_p q_dequeue(QUEUE_p target_QUEUE_p);
+PCB_p getFrontElement(QUEUE_p target_QUEUE_p);
 void q_toString(QUEUE_p target_QUEUE_p);
 void q_helperToString(QUEUE_p target_QUEUE_p);
 
