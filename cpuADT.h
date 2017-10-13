@@ -16,7 +16,7 @@
 
 // the main loop wasn't seeing this enum in cpuADT.c, so I moved it here
 typedef enum interrupt {
-	timer, io
+	timer, io, normal
 } interrupt_type;
 
 
