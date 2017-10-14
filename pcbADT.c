@@ -32,7 +32,7 @@ PCB_p create(unsigned char processPriority, unsigned int processSize) {
 		proc_p->priority = processPriority;
 		proc_p->mem = NULL;// Unknown for Problem 1 
 		proc_p->size = processSize; 
-		proc_p->channel_no = NULL; // Unknown for Problem 1
+		proc_p->channel_no = 0; // Unknown for Problem 1
 		proc_p->context = malloc(sizeof (CPU_context_s)); 
 
    		proc_p->context->ir = 0;

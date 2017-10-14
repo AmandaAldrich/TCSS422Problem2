@@ -9,19 +9,9 @@
 #include <stdio.h>
 #include "pcbADT.h"
 #include "queueADT.h"
-
-typedef struct cpu {
-	unsigned int timer;
-	PCB_p currentProcess;
-	QUEUE_p readyQueue;
-	QUEUE_p newProcessesQueue;
-	QUEUE_p terminatedQueue;
-} cpu_s;
+#include "cpuADT.h"
 
 
-typedef enum interrupt {
-	timer, io
-} interrupt_type;
 
 
 
@@ -40,27 +30,27 @@ void destroyCPU(CPU_p cpu) {
 }
 
 
-void enqueue_readyQueue(CPU_p, PCB_p pcb) {
-    q_enqueue(CPU_p->readyQueue, pcb);
+void enqueue_readyQueue(CPU_p cpu, PCB_p pcb) {
+    q_enqueue(cpu->readyQueue, pcb);
 }
 
 
-PCB_p dequeue_readyQueue() {
-    return q_dequeue(CPU_p->readyQueue);
+PCB_p dequeue_readyQueue(CPU_p cpu) {
+    return q_dequeue(cpu->readyQueue);
 }
 
-void enqueue_terminatedQueue(CPU_p, PCB_p pcb) {
-    q_enqueue(CPU_p->terminatedQueue, pcb);
+void enqueue_terminatedQueue(CPU_p cpu, PCB_p pcb) {
+    q_enqueue(cpu->terminatedQueue, pcb);
 }
 
-PCB_p dequeue_terminatedQueue() {
-    return q_dequeue(CPU_p->terminatedQueue);
+PCB_p dequeue_terminatedQueue(CPU_p cpu) {
+    return q_dequeue(cpu->terminatedQueue);
 }
 
-void enqueue_newProcessesQueue(CPU_p, PCB_p pcb) {
-	q_enqueue(CPU_p->newProcessesQueue, pcb);
+void enqueue_newProcessesQueue(CPU_p cpu, PCB_p pcb) {
+	q_enqueue(cpu->newProcessesQueue, pcb);
 }
 
-PCB_p dequeue_newProcessesQueue() {
-    return q_dequeue(CPU_p->newProcessesQueue, pcb);
+PCB_p dequeue_newProcessesQueue(CPU_p cpu) {
+    return q_dequeue(cpu->newProcessesQueue);
 }

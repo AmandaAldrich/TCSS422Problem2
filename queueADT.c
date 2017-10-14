@@ -106,6 +106,11 @@ PCB_p q_dequeue(QUEUE_p target_QUEUE_p) {
 	}
 }
 
+//front element method
+PCB_p getFrontElement(QUEUE_p target_QUEUE_p){
+    return target_QUEUE_p->NODE_front->pcbPtr;
+}
+
 //produces console output with pertinent information
 void q_toString(QUEUE_p target_QUEUE_p) {
 
