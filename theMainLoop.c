@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 
+#include <stdlib.h>
+#include <stdio.h>
+
 #include "pcbADT.h"
 #include "queueADT.h"
 #include "cpuADT.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-
 
 void create_processes(int rand_proc, CPU_p cpu);
-void pseudo_ISR(CPU_p cpu, PCB_p pcb);
+// void pseudo_ISR(CPU_p cpu, PCB_p pcb);
+void pseudo_ISR(CPU_p cpu, interrupt_type state1, PCB_p pcb);
 void scheduler(CPU_p cpu, interrupt_type state2, PCB_p pcb);
 void dispatcher(CPU_p cpu, PCB_p pcb);
 
@@ -36,12 +37,15 @@ int main(void){
             
         }
         
-        PCB_p temp = dequeue_newProcessesQueue();
+        PCB_p temp = dequeue_newProcessesQueue(cpu);
+		// PCB_p temp = dequeue_readyQueue(cpu);
+		// DISCREPANCY
+		
         temp->context->pc += rpc;
         sysStack = temp->context->pc;
         
         //theres no type switching logic here because we are only worries about timers for now
-        pseudo_ISR(timer, temp);
+        pseudo_ISR(cpu, timer, temp);
 		
 		 num +=1;   
         
@@ -62,11 +66,18 @@ void create_processes(int rand_proc, CPU_p cpu) {
 }
 
 // may not need to pass an interrupt state here, but CPU will be needed
-void pseudo_ISR(CPU_p cpu, PCB_p pcb){
-    set_state(pcb, interrupted);
-    pcb->context->pc = sysStack;
+// void pseudo_ISR(CPU_p cpu, PCB_p pcb){
+    // set_state(pcb, interrupted);
+    // pcb->context->pc = sysStack;
     
-	scheduler(cpu, timer, pcb);
+	// scheduler(cpu, timer, pcb);
+// }
+
+void pseudo_ISR(CPU_p cpu, interrupt_type state1, PCB_p pcb){
+    set_state(pcb, state1);
+    pcb->context->pc = sysStack;
+    scheduler(cpu, state1, pcb);
+    // printf("test!");
 }
 
 void scheduler(CPU_p cpu, interrupt_type interrupt, PCB_p pcb){
@@ -74,6 +85,10 @@ void scheduler(CPU_p cpu, interrupt_type interrupt, PCB_p pcb){
         case(timer):
 			set_state(pcb, ready);
 			enqueue_readyQueue(cpu, pcb);
+			printf("enqueued: ");
+            toString(pcb);
+            context_toString(pcb);
+            q_toString(cpu->readyQueue);
             dispatcher(cpu, pcb);
             break;
     }
@@ -88,7 +103,7 @@ void dispatcher(CPU_p cpu, PCB_p pcb){
     set_state(pcb, ready);
 	
     // 3) Dequeue the next waiting process
-	PCB_p newPcb = dequeue_readyQueue();
+	PCB_p newPcb = dequeue_readyQueue(cpu);
 	
 	// 4) Change its state to running
 	set_state(newPcb, running);
@@ -105,5 +120,8 @@ void dispatcher(CPU_p cpu, PCB_p pcb){
         // toString(getFrontElement(cpu->readyQueue));
         // q_toString(cpu->readyQueue);
 	}
+	
+	enqueue_readyQueue(cpu, pcb);
+	disCounter++;
 
 }    

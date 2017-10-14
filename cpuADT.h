@@ -35,15 +35,15 @@ typedef cpu_s * CPU_p;
 
 // Functions
 CPU_p createCPU();
-void destroyCPU(CPU_p);
+void destroyCPU(CPU_p cpu);
 
 void enqueue_readyQueue(CPU_p cpu, PCB_p pcb);
-PCB_p dequeue_readyQueue();
+PCB_p dequeue_readyQueue(CPU_p cpu);
 
 void enqueue_terminatedQueue(CPU_p cpu, PCB_p pcb);
-PCB_p dequeue_terminatedQueue();
+PCB_p dequeue_terminatedQueue(CPU_p cpu);
 
 void enqueue_newProcessesQueue(CPU_p cpu, PCB_p pcb);
-PCB_p dequeue_newProcessesQueue();
+PCB_p dequeue_newProcessesQueue(CPU_p cpu);
 
 #endif 
