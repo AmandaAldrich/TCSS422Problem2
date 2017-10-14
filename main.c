@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Amanda Aldrich and Jasmine Dacones.
+ * 
+ * Code for the round robin scheduling.
  */
 
 #include <stdio.h>
@@ -38,12 +38,17 @@ termintatedQ = q_create();
 }
 
 int main(void){
+    
+    FILE *f;
+    f = freopen("scheduleTrace.txt", "w", stdout);
+        
     init();
-    while(n < 10){
+    
+    while(q_size(readyQ) < 30){
         
         hasSwitched = 0;
         
-        printf("%i\n", n);
+        //printf("%i\n", n);
         
         createProcesses();
     
@@ -56,6 +61,8 @@ int main(void){
                 
         n++;
     }
+    
+    
 }
 
 void createProcesses(){
@@ -91,12 +98,12 @@ void scheduler(schedulerDecision_type state){
 void dispatcher(){
     
     int rpc = rand() % 4000 + 3000; //fix this 
-    if(n % 4 == 0 && hasSwitched != 1){
+    if(n % 4 == 0 && n != 0 && hasSwitched != 1){
         toString(runningProcess);
         printf("switching to: \n");
     }
     runningProcess = q_dequeue(readyQ);
-    if(n % 4 == 0 && hasSwitched != 1){
+    if(n % 4 == 0 && n != 0 && hasSwitched != 1){
         toString(runningProcess);
         printf("\n");
         toString(runningProcess);
