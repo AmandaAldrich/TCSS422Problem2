@@ -1,16 +1,10 @@
 /*
- * Dat Ly and Amanda Aldrich
- * Problem 1, TCSS 422, Autumn 2017
+ * Jasmine Dacones and Amanda Aldrich, with code from Dat Ly (problem 1)
+ * Problem 2, TCSS 422, Autumn 2017
  * 
  * Basic OS Kernel Structures (ADTs)
  * 
- * A separate driver was include for each ADT, please be aware that each driver 
- * must be run separately of each other, or they will throw an error about 
- * sharing main methods. 
  * 
- * There si commented code that directs the output to a text file automatically
- * however you may also wish to use redirection in the console window. Text files
- * are already included for reading. 
 */
 
 #include "pcbADT.h"
@@ -30,21 +24,21 @@ PCB_p create(unsigned char processPriority, unsigned int processSize) {
 		proc_p->state = initialState; 
 		proc_p->parent = 10; // Hardcoded number for Problem 1
 		proc_p->priority = processPriority;
-		proc_p->mem = NULL;// Unknown for Problem 1 
+		proc_p->mem = 0;// Unknown for Problem 1 
 		proc_p->size = processSize; 
-		proc_p->channel_no = NULL; // Unknown for Problem 1
+		proc_p->channel_no = 0; // Unknown for Problem 1
 		proc_p->context = malloc(sizeof (CPU_context_s)); 
 
    		proc_p->context->ir = 0;
-        proc_p->context->pc = 0;
-        proc_p->context->psr = 0;
-        proc_p->context->r0 = 0;
-        proc_p->context->r1 = 0;
-        proc_p->context->r2 = 0;
-        proc_p->context->r3 = 0;
-        proc_p->context->r4 = 0;
-        proc_p->context->r5 = 0;
-        proc_p->context->r6 = 0;
+                proc_p->context->pc = 0;
+                proc_p->context->psr = 0;
+                proc_p->context->r0 = 0;
+                proc_p->context->r1 = 0;
+                proc_p->context->r2 = 0;
+                proc_p->context->r3 = 0;
+                proc_p->context->r4 = 0;
+                proc_p->context->r5 = 0;
+                proc_p->context->r6 = 0;
 		proc_p->context->r7 = 0;
 	}
 	return proc_p;

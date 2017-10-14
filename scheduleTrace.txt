@@ -1,0 +1,68 @@
+/*
+ * Jasmine Dacones and Amanda Aldrich
+ * Problem 2, TCSS 422, Autumn 2017
+ * 
+ * 
+*/
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 4, start memory: , size: 4, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 4, start memory: , size: 4, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+content: PID: 0x0, state: 2, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+switching to: 
+content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+
+content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+new ready: 
+content: PID: 0x0, state: 0, parent: 0xa, priority: 4, start memory: , size: 4, channel_no:  
+Q:Count=16 : P31->P32->P33->P34->P35->P36->P37->P38->P39->P40->P41->P42->P43->P44->P45->P46-* : content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+end_of_run
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 4, start memory: , size: 4, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+content: PID: 0x0, state: 2, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+switching to: 
+content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+
+content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+new ready: 
+content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+Q:Count=25 : P52->P53->P54->P55->P56->P57->P58->P59->P60->P61->P62->P63->P64->P65->P66->P67->P68->P69->P70->P71->P72->P73->P74->P75->P76-* : content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+end_of_run
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 0, start memory: , size: 0, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 1, start memory: , size: 1, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 2, start memory: , size: 2, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 3, start memory: , size: 3, channel_no:  
+enqueued: content: PID: 0x0, state: 0, parent: 0xa, priority: 4, start memory: , size: 4, channel_no:  
