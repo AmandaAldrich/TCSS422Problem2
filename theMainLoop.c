@@ -89,6 +89,7 @@ void scheduler(CPU_p cpu, interrupt_type state2, PCB_p pcb){
        case(normal):
             set_state(pcb, ready);
             enqueue_readyQueue(cpu, pcb);
+            dispatcher(cpu, pcb);
             break;
         
     }
