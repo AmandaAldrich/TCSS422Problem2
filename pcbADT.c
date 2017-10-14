@@ -36,15 +36,15 @@ PCB_p create(unsigned char processPriority, unsigned int processSize) {
 		proc_p->context = malloc(sizeof (CPU_context_s)); 
 
    		proc_p->context->ir = 0;
-        proc_p->context->pc = 0;
-        proc_p->context->psr = 0;
-        proc_p->context->r0 = 0;
-        proc_p->context->r1 = 0;
-        proc_p->context->r2 = 0;
-        proc_p->context->r3 = 0;
-        proc_p->context->r4 = 0;
-        proc_p->context->r5 = 0;
-        proc_p->context->r6 = 0;
+                proc_p->context->pc = 0;
+                proc_p->context->psr = 0;
+                proc_p->context->r0 = 0;
+                proc_p->context->r1 = 0;
+                proc_p->context->r2 = 0;
+                proc_p->context->r3 = 0;
+                proc_p->context->r4 = 0;
+                proc_p->context->r5 = 0;
+                proc_p->context->r6 = 0;
 		proc_p->context->r7 = 0;
 	}
 	return proc_p;
