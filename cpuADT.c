@@ -13,8 +13,6 @@
 
 
 
-
-
 CPU_p createCPU() {
 	CPU_p cpu = malloc(sizeof(cpu));
 	cpu->timer = 0;

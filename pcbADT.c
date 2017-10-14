@@ -30,21 +30,21 @@ PCB_p create(unsigned char processPriority, unsigned int processSize) {
 		proc_p->state = initialState; 
 		proc_p->parent = 10; // Hardcoded number for Problem 1
 		proc_p->priority = processPriority;
-		proc_p->mem = NULL;// Unknown for Problem 1 
+		proc_p->mem = 0;// Unknown for Problem 1 
 		proc_p->size = processSize; 
 		proc_p->channel_no = 0; // Unknown for Problem 1
 		proc_p->context = malloc(sizeof (CPU_context_s)); 
 
    		proc_p->context->ir = 0;
-        proc_p->context->pc = 0;
-        proc_p->context->psr = 0;
-        proc_p->context->r0 = 0;
-        proc_p->context->r1 = 0;
-        proc_p->context->r2 = 0;
-        proc_p->context->r3 = 0;
-        proc_p->context->r4 = 0;
-        proc_p->context->r5 = 0;
-        proc_p->context->r6 = 0;
+                proc_p->context->pc = 0;
+                proc_p->context->psr = 0;
+                proc_p->context->r0 = 0;
+                proc_p->context->r1 = 0;
+                proc_p->context->r2 = 0;
+                proc_p->context->r3 = 0;
+                proc_p->context->r4 = 0;
+                proc_p->context->r5 = 0;
+                proc_p->context->r6 = 0;
 		proc_p->context->r7 = 0;
 	}
 	return proc_p;

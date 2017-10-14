@@ -14,8 +14,6 @@
 #ifndef CPU_H
 #define CPU_H
 
-
-// the main loop wasn't seeing this enum in cpuADT.c, so I moved it here
 typedef enum interrupt {
 	timer, io, normal
 } interrupt_type;
@@ -28,14 +26,12 @@ typedef struct cpu {
 	QUEUE_p terminatedQueue;
 } cpu_s;
 
-
-// typedef struct cpu * CPU_p;
-typedef cpu_s * CPU_p;
+typedef struct cpu * CPU_p;
 
 
 // Functions
 CPU_p createCPU();
-void destroyCPU(CPU_p cpu);
+void destroyCPU(CPU_p);
 
 void enqueue_readyQueue(CPU_p cpu, PCB_p pcb);
 PCB_p dequeue_readyQueue(CPU_p cpu);
@@ -46,4 +42,4 @@ PCB_p dequeue_terminatedQueue(CPU_p cpu);
 void enqueue_newProcessesQueue(CPU_p cpu, PCB_p pcb);
 PCB_p dequeue_newProcessesQueue(CPU_p cpu);
 
-#endif 
+#endif

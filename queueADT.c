@@ -125,10 +125,10 @@ void q_toString(QUEUE_p target_QUEUE_p) {
 		}
 		printf("* : ");
 		toString(curr->pcbPtr);
-		printf("end_of_run");
-		printf("\n");
+		printf("\n\n-------------------end_of_run---------------------");
+		printf("\n\n");
 	} else {
-		printf("Empty Queue\n");
+		printf("Empty Queue\n\n");
 	}
 
 }
@@ -145,7 +145,7 @@ void q_helperToString(QUEUE_p target_QUEUE_p) {
 		}
 		printf("*\n");
 	} else {
-		printf("Empty Queue\n");
+		printf("Empty Queue\n\n");
 	}
 }
 
